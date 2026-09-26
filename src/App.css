@@ -1,0 +1,143 @@
+/* header social-icon */
+
+ /* .top-hover a:hover {
+    background:  #26d48c !important;
+    border: 0  !important;;
+ } */
+
+ .h5 {
+   display: inline-block; /* Ensure it acts like a block element */
+   width: 100%; /* Take full width */
+   word-break: break-word; /* Allow long text to break */
+ }
+
+ .small-box {
+  background-color: #ffffff; /* White background for the boxes */
+  border: 1px solid #ddd; /* Light border for the boxes */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
+
+.small-box:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+ul {
+  list-style: disc;
+  margin-left: 20px; /* Indent for bullet points */
+}
+
+h2 {
+  font-size: 1.5rem; /* Heading size */
+}
+
+p,
+li {
+  font-size: 1rem; /* Body text size */
+  color: #333; /* Darker text color */
+}
+ /* subheader */
+a{
+   text-decoration: none; /* Removes underline */
+  color: inherit; }
+
+  .card__img {
+    width: 100%;
+    height: auto;
+  }
+  
+ 
+ /* For Tablets */
+ @media (max-width: 768px) {
+  .banner-image {
+    max-height: 350px;
+  }
+}
+
+/* For Mobile Devices */
+@media (max-width: 480px) {
+  .banner-image {
+    max-height: 250px;
+  }
+}
+
+  .bank-logos-carousel{
+    
+    position: relative;
+    top:40px;
+    box-shadow: 1px 1px 1px 0px rgb(225, 224, 224);
+    border-radius: 10px;
+    
+    
+  }
+
+  
+/* services font size  */
+.small-card-title {
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+/* //loading  */
+
+/* src/components/loading.css */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.jf-logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #198754; /* Bootstrap success color */
+  margin-bottom: 20px;
+  animation: pulse 1s infinite;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #198754;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+}
+
+ 
+
+ 
+  

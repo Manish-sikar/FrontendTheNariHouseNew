@@ -1,0 +1,2880 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+.ecommerce-home {
+  background: #fbfaf7;
+  color: #222;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.ecommerce-home a {
+  text-decoration: none;
+}
+
+/* =====================================================
+   ANNOUNCEMENT
+===================================================== */
+
+.announcement-bar {
+  height: 30px;
+  background: #238b87;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+
+  font-size: 11px;
+  letter-spacing: 0.3px;
+}
+
+.announcement-bar strong {
+  color: #ffd95a;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.shop-header {
+  background: white;
+  position: relative;
+  z-index: 1000;
+}
+
+.main-header {
+  border-bottom: 1px solid #e9e5de;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: auto;
+
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  padding: 0 30px;
+}
+
+/* LOGO */
+
+.shop-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  min-width: 180px;
+}
+
+.shop-logo img {
+  width: 43px;
+  height: 43px;
+
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-text span {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #238b87;
+}
+
+.logo-text strong {
+  font-size: 16px;
+  letter-spacing: 3px;
+  color: #b28a42;
+}
+
+/* NAVIGATION */
+
+.shop-navigation {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+
+  flex: 1;
+}
+
+.shop-navigation a {
+  color: #252525;
+  font-size: 13px;
+
+  white-space: nowrap;
+
+  transition: 0.2s;
+}
+
+.shop-navigation a:hover {
+  color: #238b87;
+}
+
+.shop-navigation .sale-link {
+  color: #e63946;
+}
+
+/* HEADER ACTIONS */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.header-icon {
+  border: 0;
+  background: transparent;
+
+  color: #222;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  padding: 5px;
+}
+
+.header-icon:hover {
+  color: #238b87;
+}
+
+.cart-button {
+  background: #238b87;
+  color: white !important;
+
+  padding: 10px 15px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  font-size: 12px;
+
+  border-radius: 2px;
+}
+
+.cart-button small {
+  background: white;
+  color: #238b87;
+
+  width: 17px;
+  height: 17px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MOBILE BUTTON */
+
+.mobile-menu-btn {
+  display: none;
+
+  background: none;
+  border: 0;
+
+  font-size: 23px;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+  min-height: 520px;
+
+  max-width: 1400px;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: 48% 52%;
+
+  background: #702d63;
+
+  overflow: hidden;
+}
+
+.hero-content {
+  padding: 75px 70px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+}
+
+.hero-label {
+  font-size: 10px;
+
+  border: 1px solid rgba(255,255,255,0.4);
+
+  width: fit-content;
+
+  padding: 7px 12px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-family: Georgia, serif;
+
+  font-size: 54px;
+
+  line-height: 1.05;
+
+  margin: 0 0 22px;
+}
+
+.hero-content h1 i {
+  font-weight: normal;
+}
+
+.hero-content p {
+  max-width: 450px;
+
+  color: rgba(255,255,255,0.8);
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 25px;
+}
+
+.btn-shop-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  background: white;
+  color: #238b87;
+
+  padding: 13px 24px;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  width: fit-content;
+
+  transition: 0.25s;
+}
+
+.btn-shop-primary:hover {
+  transform: translateY(-2px);
+  background: #f4f1ea;
+}
+
+.btn-shop-outline {
+  display: inline-flex;
+  align-items: center;
+
+  border: 1px solid rgba(255,255,255,0.5);
+
+  color: white;
+
+  padding: 13px 24px;
+
+  font-size: 12px;
+}
+
+.hero-image {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+.discount-circle {
+  position: absolute;
+
+  right: 45px;
+  top: 35px;
+
+  width: 65px;
+  height: 65px;
+
+  border-radius: 50%;
+
+  background: #d6b849;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 11px;
+}
+
+.discount-circle strong {
+  font-size: 17px;
+}
+
+.hero-price {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  background: white;
+
+  padding: 12px 22px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-price small {
+  font-size: 8px;
+  color: #888;
+}
+
+.hero-price strong {
+  color: #238b87;
+  font-size: 18px;
+}
+
+/* =====================================================
+   FEATURES
+===================================================== */
+
+.feature-section {
+  max-width: 1400px;
+  margin: auto;
+
+  background: white;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-bottom: 1px solid #e7e3dc;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 18px;
+
+  border-right: 1px solid #e7e3dc;
+}
+
+.feature-item:last-child {
+  border-right: none;
+}
+
+.feature-item i {
+  font-size: 20px;
+  color: #238b87;
+}
+
+.feature-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-item strong {
+  font-size: 12px;
+}
+
+.feature-item span {
+  color: #888;
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+  text-align: center;
+
+  margin-bottom: 45px;
+}
+
+.section-heading span {
+  font-size: 9px;
+
+  letter-spacing: 3px;
+
+  color: #238b87;
+
+  font-weight: bold;
+}
+
+.section-heading h2 {
+  font-family: Georgia, serif;
+
+  font-size: 38px;
+
+  margin: 9px 0;
+}
+
+.section-heading p {
+  color: #777;
+
+  font-size: 13px;
+}
+
+/* =====================================================
+   CATEGORY
+===================================================== */
+
+.category-section {
+  max-width: 1400px;
+  margin: auto;
+
+  padding: 90px 35px;
+}
+
+.category-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+.category-card {
+  position: relative;
+
+  height: 390px;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s;
+}
+
+.category-card:hover img {
+  transform: scale(1.06);
+}
+
+.category-overlay {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  padding: 25px;
+
+  background: linear-gradient(
+    transparent,
+    rgba(0,0,0,0.75)
+  );
+
+  color: white;
+}
+
+.category-overlay h3 {
+  font-family: Georgia, serif;
+
+  font-size: 25px;
+
+  margin-bottom: 8px;
+}
+
+.category-overlay span {
+  font-size: 11px;
+}
+
+.category-overlay i {
+  margin-left: 8px;
+}
+
+/* =====================================================
+   PRODUCTS
+===================================================== */
+
+.products-section {
+  max-width: 1400px;
+  margin: auto;
+
+  padding: 30px 35px 90px;
+}
+
+.product-heading {
+  display: flex;
+
+  align-items: end;
+
+  justify-content: space-between;
+
+  text-align: left;
+}
+
+.product-heading h2 {
+  margin-bottom: 0;
+}
+
+.view-all {
+  color: #238b87;
+
+  font-size: 12px;
+
+  padding-bottom: 8px;
+}
+
+.view-all i {
+  margin-left: 8px;
+}
+
+.product-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.product-card {
+  background: white;
+
+  overflow: hidden;
+}
+
+.product-image {
+  height: 390px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #f0eee9;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: 0.5s;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.04);
+}
+
+.product-badge {
+  position: absolute;
+
+  top: 12px;
+  left: 12px;
+
+  background: #e13d4c;
+
+  color: white;
+
+  padding: 6px 9px;
+
+  font-size: 9px;
+
+  z-index: 2;
+}
+
+.wishlist-btn {
+  position: absolute;
+
+  right: 12px;
+  top: 12px;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+
+  border: 0;
+
+  background: white;
+
+  z-index: 3;
+
+  cursor: pointer;
+}
+
+.wishlist-btn:hover {
+  color: #e13d4c;
+}
+
+.quick-view {
+  position: absolute;
+
+  bottom: -50px;
+
+  left: 10px;
+  right: 10px;
+
+  text-align: center;
+
+  padding: 12px;
+
+  background: white;
+
+  color: #222;
+
+  font-size: 11px;
+
+  transition: 0.3s;
+}
+
+.product-card:hover .quick-view {
+  bottom: 10px;
+}
+
+.product-details {
+  padding: 16px 3px;
+}
+
+.product-category {
+  color: #999;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+}
+
+.product-details h3 {
+  font-size: 14px;
+
+  margin: 7px 0;
+
+  font-weight: 500;
+}
+
+.product-rating {
+  color: #d3a52f;
+
+  font-size: 11px;
+}
+
+.product-rating span {
+  color: #999;
+
+  margin-left: 5px;
+}
+
+.product-price {
+  margin-top: 9px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.product-price strong {
+  font-size: 15px;
+}
+
+.product-price del {
+  color: #999;
+
+  font-size: 11px;
+}
+
+/* =====================================================
+   PROMO
+===================================================== */
+
+.promo-section {
+  max-width: 1400px;
+
+  margin: 0 auto 80px;
+
+  min-height: 400px;
+
+  background: #eee8dd;
+
+  display: grid;
+
+  grid-template-columns: 45% 55%;
+
+  overflow: hidden;
+}
+
+.promo-content {
+  padding: 60px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.promo-content > span {
+  color: #238b87;
+
+  letter-spacing: 2px;
+
+  font-size: 10px;
+}
+
+.promo-content h2 {
+  font-family: Georgia, serif;
+
+  font-size: 42px;
+
+  line-height: 1.1;
+
+  margin: 12px 0;
+}
+
+.promo-content p {
+  color: #777;
+
+  font-size: 13px;
+
+  margin-bottom: 25px;
+}
+
+.promo-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+.newsletter-section {
+  background: #238b87;
+
+  color: white;
+
+  max-width: 1400px;
+
+  margin: auto;
+
+  padding: 60px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 40px;
+}
+
+.newsletter-section span {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.newsletter-section h2 {
+  font-family: Georgia, serif;
+
+  font-size: 30px;
+
+  margin: 8px 0;
+}
+
+.newsletter-section p {
+  margin: 0;
+
+  color: rgba(255,255,255,0.8);
+
+  font-size: 12px;
+}
+
+.newsletter-form {
+  display: flex;
+
+  min-width: 450px;
+}
+
+.newsletter-form input {
+  flex: 1;
+
+  border: 0;
+
+  padding: 15px;
+
+  outline: none;
+}
+
+.newsletter-form button {
+  border: 0;
+
+  background: #222;
+
+  color: white;
+
+  padding: 0 22px;
+
+  cursor: pointer;
+}
+
+.newsletter-form button i {
+  margin-left: 8px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+.mobile-navigation {
+  display: none;
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+
+  .shop-navigation {
+    gap: 12px;
+  }
+
+  .shop-navigation a {
+    font-size: 11px;
+  }
+
+  .hero-content {
+    padding: 45px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .category-grid,
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+  .announcement-bar {
+    gap: 10px;
+    font-size: 8px;
+
+    padding: 0 8px;
+  }
+
+  .announcement-bar div:nth-child(2) {
+    display: none;
+  }
+
+  .header-container {
+    padding: 10px 15px;
+
+    min-height: 65px;
+
+    justify-content: space-between;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .shop-navigation {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  .header-icon {
+    font-size: 17px;
+  }
+
+  .cart-button span {
+    display: none;
+  }
+
+  .cart-button {
+    padding: 9px 10px;
+  }
+
+  .shop-logo {
+    min-width: auto;
+  }
+
+  .mobile-navigation {
+    display: flex;
+
+    flex-direction: column;
+
+    background: white;
+
+    border-top: 1px solid #eee;
+  }
+
+  .mobile-navigation a {
+    padding: 14px 20px;
+
+    color: #222;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 13px;
+  }
+
+  /* Hero */
+
+  .hero-section {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 50px 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .hero-image {
+    height: 400px;
+  }
+
+  /* Features */
+
+  .feature-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-item {
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Categories */
+
+  .category-section {
+    padding: 60px 15px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .category-card {
+    height: 280px;
+  }
+
+  /* Products */
+
+  .products-section {
+    padding: 20px 15px 60px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+  }
+
+  .product-image {
+    height: 250px;
+  }
+
+  .section-heading h2 {
+    font-size: 30px;
+  }
+
+  .product-heading {
+    align-items: center;
+  }
+
+  /* Promo */
+
+  .promo-section {
+    grid-template-columns: 1fr;
+
+    margin: 0 15px 60px;
+  }
+
+  .promo-content {
+    padding: 40px 25px;
+  }
+
+  .promo-image {
+    height: 300px;
+  }
+
+  /* Newsletter */
+
+  .newsletter-section {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 40px 25px;
+  }
+
+  .newsletter-form {
+    min-width: 100%;
+
+    width: 100%;
+  }
+
+}
+
+
+
+/* =========================================
+   ECOMMERCE FOOTER
+========================================= */
+
+.ecommerce-footer {
+  background: #1b1b1b;
+  color: #ffffff;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main Container */
+
+.ecommerce-footer-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 55px 20px 35px;
+
+  display: grid;
+  grid-template-columns:
+    1.6fr
+    1fr
+    1fr
+    1fr
+    1.4fr;
+
+  gap: 55px;
+}
+
+/* =========================================
+   COMPANY
+========================================= */
+
+.footer-company {
+  max-width: 250px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.footer-logo img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.footer-logo-text {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #168b89;
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  margin-right: 10px;
+}
+
+.footer-brand-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.footer-brand-name span {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+.footer-brand-name small {
+  font-size: 7px;
+  letter-spacing: 2px;
+  color: #bdbdbd;
+  margin-top: 3px;
+}
+
+.footer-description {
+  color: #a5a5a5;
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 235px;
+}
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.footer-social {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.footer-social a {
+  width: 25px;
+  height: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #444;
+  border-radius: 50%;
+
+  color: #aaa;
+  text-decoration: none;
+
+  font-size: 10px;
+
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background: #168b89;
+  border-color: #168b89;
+  color: #fff;
+}
+
+/* =========================================
+   FOOTER COLUMNS
+========================================= */
+
+.footer-column h4,
+.footer-contact h4 {
+  margin: 0 0 20px;
+
+  color: #ffffff;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #a6a6a6;
+
+  font-size: 10px;
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.footer-contact a,
+.footer-address {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 9px;
+
+  color: #999;
+
+  text-decoration: none;
+
+  font-size: 9px;
+
+  margin-bottom: 14px;
+
+  line-height: 1.5;
+}
+
+.footer-contact i {
+  color: #168b89;
+  width: 13px;
+  margin-top: 2px;
+}
+
+.footer-contact a:hover {
+  color: #ffffff;
+}
+
+.footer-address {
+  color: #999;
+}
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.footer-bottom {
+  border-top: 1px solid #2d2d2d;
+}
+
+.footer-bottom-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+
+  min-height: 60px;
+
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.copyright {
+  color: #777;
+  font-size: 8px;
+}
+
+.copyright span {
+  color: #888;
+}
+
+/* =========================================
+   PAYMENT
+========================================= */
+
+.payment-section {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.payment-section > span {
+  color: #666;
+  font-size: 8px;
+  margin-right: 3px;
+}
+
+.payment-method {
+  min-width: 30px;
+  height: 18px;
+
+  border: 1px solid #3b3b3b;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 5px;
+
+  color: #777;
+
+  font-size: 7px;
+
+  border-radius: 2px;
+}
+
+.payment-method img {
+  max-width: 25px;
+  max-height: 12px;
+  object-fit: contain;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 991px) {
+
+  .ecommerce-footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footer-company {
+    max-width: 100%;
+  }
+
+  .footer-description {
+    max-width: 300px;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 576px) {
+
+  .ecommerce-footer-container {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 30px;
+    gap: 30px;
+  }
+
+  .footer-company {
+    max-width: 100%;
+  }
+
+  .footer-column h4,
+  .footer-contact h4 {
+    margin-bottom: 14px;
+  }
+
+  .footer-bottom-inner {
+    align-items: flex-start;
+  }
+
+  .payment-section {
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================================================
+   NAARI HOUSE - SHOP PAGE
+========================================================= */
+
+.naari-products-page {
+  background: #fdfbf7;
+  min-height: 100vh;
+  color: #292929;
+}
+
+
+/* =========================================================
+   SHOP BANNER
+========================================================= */
+
+.naari-shop-banner {
+  background: #f7f1e9;
+  padding: 55px 0 48px;
+  text-align: center;
+}
+
+.naari-shop-breadcrumb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  color: #777;
+  margin-bottom: 17px;
+}
+
+.naari-shop-breadcrumb a {
+  color: #555;
+  text-decoration: none;
+}
+
+.naari-shop-breadcrumb a:hover {
+  color: #168c8c;
+}
+
+.naari-shop-banner h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 38px;
+  font-weight: 500;
+  color: #222;
+}
+
+.naari-shop-banner p {
+  margin: 12px 0 0;
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   SHOP CONTENT
+========================================================= */
+
+.naari-shop-content {
+  padding: 45px 0 80px;
+}
+
+
+/* =========================================================
+   FILTER SIDEBAR
+========================================================= */
+
+.naari-filter-sidebar {
+  background: #fff;
+  border: 1px solid #e9e5df;
+  padding: 22px;
+}
+
+.naari-filter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 17px;
+  border-bottom: 1px solid #e9e5df;
+}
+
+.naari-filter-heading h3 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.naari-filter-heading button {
+  background: transparent;
+  border: 0;
+
+  color: #168c8c;
+
+  font-size: 10px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+
+.naari-filter-section {
+  padding: 23px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.naari-filter-section:last-child {
+  border-bottom: 0;
+}
+
+.naari-filter-section h4 {
+  margin: 0 0 15px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.1px;
+  color: #555;
+}
+
+
+/* =========================================================
+   CATEGORY FILTER
+========================================================= */
+
+.naari-category-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.naari-category-list button {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 9px 0;
+
+  border: 0;
+  background: transparent;
+
+  text-align: left;
+
+  color: #666;
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.naari-category-list button:hover {
+  color: #168c8c;
+}
+
+.naari-category-list button.active {
+  color: #168c8c;
+  font-weight: 600;
+}
+
+.naari-category-list small {
+  color: #aaa;
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   PRICE FILTER
+========================================================= */
+
+.naari-price-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.naari-price-filter label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 12px;
+  color: #666;
+
+  cursor: pointer;
+}
+
+.naari-price-filter input {
+  accent-color: #168c8c;
+}
+
+
+/* =========================================================
+   CHECKBOX
+========================================================= */
+
+.naari-check-filter {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 12px;
+
+  color: #666;
+  font-size: 12px;
+
+  cursor: pointer;
+}
+
+.naari-check-filter input {
+  accent-color: #168c8c;
+}
+
+
+/* =========================================================
+   SHOP TOOLBAR
+========================================================= */
+
+.naari-shop-toolbar {
+  min-height: 42px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+
+  border-bottom: 1px solid #e9e5df;
+
+  padding-bottom: 16px;
+}
+
+.naari-result-count {
+  color: #777;
+  font-size: 11px;
+}
+
+.naari-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* SEARCH */
+
+.naari-product-search {
+  height: 37px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #ddd;
+  background: #fff;
+
+  padding: 0 11px;
+
+  width: 190px;
+}
+
+.naari-product-search i {
+  color: #999;
+  font-size: 11px;
+
+  margin-right: 7px;
+}
+
+.naari-product-search input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  font-size: 11px;
+}
+
+.naari-product-search input::placeholder {
+  color: #aaa;
+}
+
+
+/* SORT */
+
+.naari-shop-toolbar select {
+  height: 37px;
+
+  min-width: 145px;
+
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  padding: 0 10px;
+
+  color: #555;
+
+  font-size: 11px;
+
+  outline: 0;
+}
+
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.naari-product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 27px 18px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.naari-product-card {
+  min-width: 0;
+  background: transparent;
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.naari-product-image {
+  position: relative;
+
+  width: 100%;
+  height: 340px;
+
+  background: #eee9e2;
+
+  overflow: hidden;
+}
+
+.naari-product-image > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.naari-product-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform .6s ease;
+}
+
+.naari-product-card:hover
+.naari-product-image img {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.naari-product-badge {
+  position: absolute;
+
+  left: 10px;
+  top: 10px;
+
+  z-index: 3;
+
+  padding: 5px 8px;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: .6px;
+
+  color: #fff;
+}
+
+.naari-product-badge.new {
+  background: #168c8c;
+}
+
+.naari-product-badge.sale {
+  background: #9d2e56;
+  top: 35px;
+}
+
+
+.naari-discount-badge {
+  position: absolute;
+
+  left: 10px;
+  bottom: 10px;
+
+  z-index: 3;
+
+  background: #168c8c;
+
+  color: #fff;
+
+  padding: 5px 7px;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+.naari-wishlist-btn {
+  position: absolute;
+
+  right: 10px;
+  top: 10px;
+
+  z-index: 5;
+
+  width: 31px;
+  height: 31px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.92);
+
+  color: #555;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.naari-wishlist-btn:hover {
+  background: #168c8c;
+  color: #fff;
+}
+
+.naari-wishlist-btn i {
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   PRODUCT OVERLAY
+========================================================= */
+
+.naari-product-overlay {
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition: .3s;
+}
+
+.naari-product-card:hover
+.naari-product-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.naari-quick-view {
+  width: 100%;
+
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff;
+
+  color: #222;
+
+  text-decoration: none;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: .6px;
+}
+
+.naari-quick-view:hover {
+  background: #168c8c;
+  color: #fff;
+}
+
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.naari-product-info {
+  padding: 12px 2px 0;
+}
+
+.naari-product-category {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #999;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: .7px;
+}
+
+.naari-product-name {
+  display: block;
+
+  color: #292929;
+
+  text-decoration: none;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 14px;
+
+  line-height: 1.4;
+
+  transition: .2s;
+}
+
+.naari-product-name:hover {
+  color: #168c8c;
+}
+
+
+/* =========================================================
+   RATING
+========================================================= */
+
+.naari-product-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 5px;
+}
+
+.naari-product-rating .stars {
+  color: #d3a52c;
+
+  font-size: 8px;
+}
+
+.naari-product-rating .rating-count {
+  color: #aaa;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.naari-product-price {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 6px;
+}
+
+.naari-product-price .sale-price {
+  color: #222;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.naari-product-price del {
+  color: #999;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   OUT OF STOCK
+========================================================= */
+
+.naari-out-stock {
+  display: inline-block;
+
+  margin-top: 5px;
+
+  color: #a33;
+
+  font-size: 9px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.naari-products-loading,
+.naari-product-detail-loading {
+  min-height: 400px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #888;
+
+  font-size: 12px;
+}
+
+.naari-loader {
+  width: 32px;
+  height: 32px;
+
+  border: 2px solid #e5e5e5;
+  border-top-color: #168c8c;
+
+  border-radius: 50%;
+
+  animation: naariSpin .8s linear infinite;
+
+  margin-bottom: 12px;
+}
+
+@keyframes naariSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   NO PRODUCTS
+========================================================= */
+
+.naari-no-products {
+  min-height: 400px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1px solid #eee;
+
+  background: #fff;
+
+  padding: 40px;
+}
+
+.naari-no-products > i {
+  font-size: 42px;
+
+  color: #c9c1b7;
+
+  margin-bottom: 15px;
+}
+
+.naari-no-products h3 {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 23px;
+
+  margin: 0 0 8px;
+}
+
+.naari-no-products p {
+  color: #888;
+
+  font-size: 12px;
+
+  margin-bottom: 20px;
+}
+
+.naari-no-products button,
+.naari-product-not-found button {
+  border: 0;
+
+  background: #168c8c;
+
+  color: #fff;
+
+  padding: 12px 20px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: .6px;
+
+  cursor: pointer;
+}
+
+.naari-no-products button:hover,
+.naari-product-not-found button:hover {
+  background: #222;
+}
+
+
+/* =========================================================
+   PRODUCT DETAIL PAGE
+========================================================= */
+
+.naari-product-detail-page {
+  background: #fdfbf7;
+
+  min-height: 100vh;
+
+  color: #292929;
+}
+
+
+/* =========================================================
+   DETAIL BREADCRUMB
+========================================================= */
+
+.naari-detail-breadcrumb {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 22px 0;
+
+  color: #999;
+
+  font-size: 10px;
+}
+
+.naari-detail-breadcrumb a {
+  color: #555;
+
+  text-decoration: none;
+}
+
+.naari-detail-breadcrumb a:hover {
+  color: #168c8c;
+}
+
+
+/* =========================================================
+   DETAIL SECTION
+========================================================= */
+
+.naari-product-detail-section {
+  padding: 20px 0 80px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.naari-detail-gallery {
+  position: relative;
+}
+
+
+/* MAIN */
+
+.naari-detail-main-image {
+  position: relative;
+
+  width: 100%;
+
+  height: 570px;
+
+  background: #eee9e2;
+
+  overflow: hidden;
+}
+
+.naari-detail-main-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* SALE */
+
+.naari-detail-sale-badge {
+  position: absolute;
+
+  left: 15px;
+  top: 15px;
+
+  z-index: 5;
+
+  background: #9d2e56;
+
+  color: #fff;
+
+  padding: 7px 10px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* WISHLIST */
+
+.naari-detail-wishlist {
+  position: absolute;
+
+  right: 15px;
+  top: 15px;
+
+  z-index: 5;
+
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  color: #333;
+
+  cursor: pointer;
+
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.naari-detail-wishlist:hover {
+  background: #168c8c;
+  color: #fff;
+}
+
+
+/* =========================================================
+   THUMBNAILS
+========================================================= */
+
+.naari-detail-thumbnails {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.naari-detail-thumbnails button {
+  width: 75px;
+  height: 85px;
+
+  padding: 0;
+
+  background: #eee9e2;
+
+  border: 1px solid transparent;
+
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.naari-detail-thumbnails button.active {
+  border-color: #168c8c;
+}
+
+.naari-detail-thumbnails img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   DETAIL INFO
+========================================================= */
+
+.naari-detail-info {
+  padding: 10px 0 0 35px;
+}
+
+.naari-detail-category {
+  display: inline-block;
+
+  color: #168c8c;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 12px;
+}
+
+.naari-detail-info h1 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 39px;
+
+  font-weight: 500;
+
+  line-height: 1.25;
+
+  color: #222;
+}
+
+
+/* =========================================================
+   DETAIL RATING
+========================================================= */
+
+.naari-detail-rating {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 13px;
+}
+
+.naari-detail-rating span {
+  color: #d3a52c;
+
+  font-size: 11px;
+}
+
+.naari-detail-rating small {
+  color: #888;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   DETAIL PRICE
+========================================================= */
+
+.naari-detail-price {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 23px 0;
+}
+
+.naari-detail-price strong {
+  font-size: 25px;
+
+  font-weight: 600;
+}
+
+.naari-detail-price del {
+  color: #999;
+
+  font-size: 14px;
+}
+
+.naari-detail-price span {
+  background: #168c8c;
+
+  color: #fff;
+
+  padding: 5px 8px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.naari-detail-description {
+  padding: 20px 0;
+
+  border-top: 1px solid #e8e3dc;
+
+  border-bottom: 1px solid #e8e3dc;
+}
+
+.naari-detail-description p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.naari-detail-meta {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 12px;
+
+  font-size: 11px;
+}
+
+.naari-detail-meta strong {
+  color: #333;
+}
+
+.naari-detail-meta span {
+  color: #777;
+}
+
+
+/* =========================================================
+   STOCK
+========================================================= */
+
+.naari-detail-stock {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 22px;
+
+  font-size: 12px;
+}
+
+.naari-detail-stock i {
+  color: #168c8c;
+}
+
+.naari-detail-stock span {
+  font-weight: 600;
+}
+
+.naari-detail-stock small {
+  color: #999;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.naari-detail-actions {
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 22px;
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+.naari-quantity {
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  border: 1px solid #ddd;
+
+  background: #fff;
+}
+
+.naari-quantity button {
+  width: 40px;
+
+  height: 100%;
+
+  border: 0;
+
+  background: #fff;
+
+  font-size: 17px;
+
+  cursor: pointer;
+}
+
+.naari-quantity button:hover {
+  background: #f5f5f5;
+}
+
+.naari-quantity span {
+  width: 35px;
+
+  text-align: center;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ADD CART
+========================================================= */
+
+.naari-add-cart-btn {
+  height: 48px;
+
+  padding: 0 35px;
+
+  border: 1px solid #168c8c;
+
+  background: #168c8c;
+
+  color: #fff;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: .7px;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.naari-add-cart-btn:hover {
+  background: #222;
+
+  border-color: #222;
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+.naari-buy-now-btn {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 10px;
+
+  border: 1px solid #292929;
+
+  background: #292929;
+
+  color: #fff;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: .8px;
+
+  cursor: pointer;
+}
+
+.naari-buy-now-btn:hover {
+  background: #168c8c;
+
+  border-color: #168c8c;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.naari-product-features {
+  margin-top: 28px;
+
+  border-top: 1px solid #e8e3dc;
+}
+
+.naari-product-features > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #e8e3dc;
+}
+
+.naari-product-features > div > i {
+  width: 25px;
+
+  color: #168c8c;
+
+  font-size: 16px;
+
+  text-align: center;
+}
+
+.naari-product-features strong {
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 600;
+}
+
+.naari-product-features span {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #999;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   PRODUCT NOT FOUND
+========================================================= */
+
+.naari-product-not-found {
+  min-height: 65vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  background: #fdfbf7;
+}
+
+.naari-product-not-found > i {
+  font-size: 45px;
+
+  color: #c9c1b7;
+
+  margin-bottom: 15px;
+}
+
+.naari-product-not-found h2 {
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-weight: 500;
+
+  margin: 0 0 8px;
+}
+
+.naari-product-not-found p {
+  color: #888;
+
+  font-size: 12px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+  .naari-product-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .naari-filter-sidebar {
+    margin-bottom: 30px;
+  }
+
+  .naari-detail-info {
+    padding: 35px 0 0;
+  }
+
+  .naari-detail-main-image {
+    height: 500px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+  .naari-shop-banner {
+    padding: 38px 0;
+  }
+
+  .naari-shop-banner h1 {
+    font-size: 29px;
+  }
+
+  .naari-shop-banner p {
+    font-size: 11px;
+  }
+
+  .naari-shop-content {
+    padding: 25px 0 50px;
+  }
+
+  .naari-shop-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .naari-toolbar-right {
+    width: 100%;
+  }
+
+  .naari-product-search {
+    flex: 1;
+  }
+
+  .naari-shop-toolbar select {
+    flex: 1;
+  }
+
+  .naari-product-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 22px 10px;
+  }
+
+  .naari-product-image {
+    height: 245px;
+  }
+
+  .naari-product-name {
+    font-size: 12px;
+  }
+
+  .naari-product-price .sale-price {
+    font-size: 12px;
+  }
+
+  .naari-product-price del {
+    font-size: 9px;
+  }
+
+  .naari-product-overlay {
+    display: none;
+  }
+
+  .naari-product-detail-section {
+    padding-top: 5px;
+  }
+
+  .naari-detail-main-image {
+    height: 430px;
+  }
+
+  .naari-detail-info {
+    padding-top: 28px;
+  }
+
+  .naari-detail-info h1 {
+    font-size: 29px;
+  }
+
+  .naari-detail-price strong {
+    font-size: 22px;
+  }
+
+  .naari-detail-actions {
+    flex-wrap: wrap;
+  }
+
+  .naari-quantity {
+    width: 100%;
+  }
+
+  .naari-quantity button,
+  .naari-quantity span {
+    flex: 1;
+  }
+
+  .naari-add-cart-btn {
+    flex: 1;
+  }
+
+}
+
+.naari-wishlist-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.naari-wishlist-btn i {
+  font-size: 18px;
+  transition: all 0.25s ease;
+}
+
+.naari-wishlist-btn.active i {
+  color: #e91e63;
+}
+
+.naari-wishlist-btn:hover i {
+  color: #e91e63;
+}
