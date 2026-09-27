@@ -40,7 +40,8 @@
 
 import axios from "axios";
 
-export const baseURL = "http://localhost:5656/api/admin";
+// export const baseURL = "http://localhost:5656/api/admin";
+export const baseURL = "https://backendthenarihousenew.onrender.com/api/admin";
 
 const router = axios.create({
   baseURL,
