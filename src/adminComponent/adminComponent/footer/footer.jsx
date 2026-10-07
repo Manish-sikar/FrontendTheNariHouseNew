@@ -273,7 +273,7 @@ const ContactData = () => {
 
                   {/* Footer Our Services */}
                   <div className="form-group">
-                    <label>Footer Our Services</label>
+                    <label>CATEGORIES</label>
                     {formData.footer_our_services.map((service, index) => (
                       <div key={index} className="d-flex mb-2">
                         <input
@@ -290,13 +290,13 @@ const ContactData = () => {
                       </div>
                     ))}
                     <button className="btn btn-primary mt-2" onClick={() => addService("footer_our_services")}>
-                      Add Service
+                      Add CATEGORIES
                     </button>
                   </div>
 
                   {/* Footer Banking Services */}
                   <div className="form-group">
-                    <label>Footer Banking Services</label>
+                    <label>QUICK LINK</label>
                     {formData.footer_banking_services.map((service, index) => (
                       <div key={index} className="d-flex mb-2">
                         <input
@@ -313,13 +313,13 @@ const ContactData = () => {
                       </div>
                     ))}
                     <button className="btn btn-primary mt-2" onClick={() => addService("footer_banking_services")}>
-                      Add Banking Service
+                      Add QUICK LINK
                     </button>
                   </div>
 
                   {/* Footer Other Services */}
                   <div className="form-group">
-                    <label>Footer Other Services</label>
+                    <label>SUPPORT</label>
                     {formData.footer_other_services.map((service, index) => (
                       <div key={index} className="d-flex mb-2">
                         <input
@@ -336,7 +336,7 @@ const ContactData = () => {
                       </div>
                     ))}
                     <button className="btn btn-primary mt-2" onClick={() => addService("footer_other_services")}>
-                      Add Other Service
+                      Add SUPPORT
                     </button>
                   </div>
                 </div>

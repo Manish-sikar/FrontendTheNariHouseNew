@@ -1,85 +1,66 @@
-import React, { useEffect, useState } from "react";
-import {
-  MDBContainer,
-  MDBCol,
-  MDBRow,
-  MDBBtn,
-  MDBInput,
-  MDBCheckbox,
-  MDBModal,
-  MDBModalBody,
-  MDBModalHeader,
-} from "mdb-react-ui-kit";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import {
-  UserLoginApi,
-  ForgotPasswordApi,
-  VerifyOtpApi,
-  ResetPasswordApi,
-} from "../../services/authServices";
 import { CustomerLoginApi } from "../../services/customerAuthServices";
 import { useAuthUser } from "./contexUser";
-import Loading from "../../loadingFile";
+import { AuthShell, PasswordField } from "./AuthShell";
+import ForgotPasswordModal from "./ForgotPasswordModal";
 
 const LoginUser = () => {
-  const [emailORphone, setEmailORPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [modalOpen, setModalOpen] = useState(false);
-  const [email, setEmail] = useState("");
-  const [otp, setOtp] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [step, setStep] = useState(1);
-  const [pageLoading, setPageLoading] = useState(true); // Initial screen
-  const [loginLoading, setLoginLoading] = useState(false); // On form submit
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setPageLoading(false);
-    }, 1500);
-    return () => clearTimeout(timeout);
-  }, []);
-
   const navigate = useNavigate();
-  const {
-    setTokenUser,
-    setDataUser,
-    setuserEmail,
-    setuserBalance,
-    setuserDelar_id,
-    setuserStatus,
-  } = useAuthUser();
+  const { setTokenUser, setDataUser, setuserEmail, setuserStatus } =
+    useAuthUser();
+
+  const remembered = localStorage.getItem("rememberedLogin") || "";
+
+  const [emailORphone, setEmailORPhone] = useState(remembered);
+  const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(!!remembered);
+  const [loading, setLoading] = useState(false);
+  const [forgotOpen, setForgotOpen] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    setLoginLoading(true);
-
-    if (!emailORphone || !password) {
-      Swal.fire("Error", "Email/mobile and password are required", "error");
-
-      setLoginLoading(false);
-      return;
+    if (!emailORphone.trim() || !password) {
+      return Swal.fire(
+        "Error",
+        "Email/mobile and password are required",
+        "error",
+      );
     }
 
     try {
+      setLoading(true);
+
       const response = await CustomerLoginApi({
-        emailORphone,
+        emailORphone: emailORphone.trim(),
         password,
       });
 
       if (response.success && response.token) {
         localStorage.setItem("authTokenUser", response.token);
-
         localStorage.setItem("userDataUser", JSON.stringify(response.user));
+
+        // "Remember me" only remembers the email/mobile, never the password
+        if (remember) {
+          localStorage.setItem("rememberedLogin", emailORphone.trim());
+        } else {
+          localStorage.removeItem("rememberedLogin");
+        }
 
         setTokenUser(response.token);
         setDataUser(response.user.fullName);
         setuserEmail(response.user.email);
         setuserStatus(response.user.status);
 
-        Swal.fire("Success", "Login successful!", "success");
+        await Swal.fire({
+          icon: "success",
+          title: "Welcome back!",
+          text: "Login successful.",
+          timer: 1200,
+          showConfirmButton: false,
+        });
 
         navigate("/");
       }
@@ -90,168 +71,80 @@ const LoginUser = () => {
         "error",
       );
     } finally {
-      setLoginLoading(false);
+      setLoading(false);
     }
   };
-
-  const handleForgotPassword = async () => {
-    try {
-      await ForgotPasswordApi({ email });
-      Swal.fire("Success", "OTP sent to your email!", "success");
-      setStep(2);
-    } catch (error) {
-      const err = error?.response?.data.message;
-      Swal.fire(err || "Error", "Failed to send OTP.", "error");
-    }
-  };
-
-  const handleVerifyOtp = async () => {
-    try {
-      await VerifyOtpApi({ email, otp });
-      setStep(3);
-    } catch (error) {
-      Swal.fire("Error", "Invalid OTP.", "error");
-    }
-  };
-
-  const handleResetPassword = async () => {
-    if (newPassword !== confirmPassword) {
-      Swal.fire("Error", "Passwords do not match!", "error");
-      return;
-    }
-    try {
-      await ResetPasswordApi({ email, newPassword });
-      Swal.fire("Success", "Password changed successfully!", "success");
-      setModalOpen(false);
-    } catch (error) {
-      Swal.fire("Error", "Failed to reset password.", "error");
-    }
-  };
-
-  if (pageLoading) return <Loading />;
 
   return (
-    <MDBContainer fluid className="p-3 my-5">
-      <MDBRow>
-        <MDBCol col="10" md="6">
-          <img
-            src="./img/jsnathPdfIcon.png"
-            className="img-fluid"
-            alt="Phone illustration"
+    <>
+      <AuthShell
+        panelTitle="Ethnic wear you'll love wearing."
+        panelText="Sign in to track your orders, save your wishlist and check out faster."
+      >
+        <h1>Sign in</h1>
+        <p className="nh-sub">
+          Welcome back. Enter your details to continue shopping.
+        </p>
+
+        <form onSubmit={handleLogin} noValidate>
+          <div className="nh-field">
+            <label htmlFor="emailORphone">Email or mobile number</label>
+            <input
+              id="emailORphone"
+              className="nh-input"
+              type="text"
+              placeholder="you@example.com or 9876543210"
+              value={emailORphone}
+              onChange={(e) => setEmailORPhone(e.target.value)}
+              autoComplete="username"
+            />
+          </div>
+
+          <PasswordField
+            id="password"
+            label="Password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            autoComplete="current-password"
           />
-        </MDBCol>
 
-        <MDBCol col="4" md="6" className="border-2">
-          <span style={{ fontFamily: "ui-monospace !important" }}>
-            {" "}
-            <h1>Customer Login</h1>
-          </span>
-          <form onSubmit={handleLogin}>
-            {/* <MDBInput label="Email or Phone" id="emailORphone" type="text" size="lg" value={emailORphone} onChange={(e) => setEmailORPhone(e.target.value)} className="mb-4"  labelPlacement="top" /> */}
-            <div className="mb-4 mt-5">
-              <label htmlFor="emailORphone" className="form-label">
-                Email or Mobile
-              </label>
-              <MDBInput
-                id="emailORphone"
-                type="text"
-                size="lg"
-                value={emailORphone}
-                onChange={(e) => setEmailORPhone(e.target.value)}
+          <div className="nh-row">
+            <label className="nh-check">
+              <input
+                type="checkbox"
+                checked={remember}
+                onChange={(e) => setRemember(e.target.checked)}
               />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="Password" className="form-label">
-                Password
-              </label>
-              <MDBInput
-                id="password"
-                type="password"
-                size="lg"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            {/* <MDBInput label="Password" id="password" type="password" size="lg" value={password} onChange={(e) => setPassword(e.target.value)} className="mb-4" /> */}
-
-            <div className="d-flex justify-content-between mx-4 mb-4">
-              <MDBCheckbox
-                name="flexCheck"
-                id="flexCheckDefault"
-                label="Remember me"
-              />
-              <a href="#!" onClick={() => setModalOpen(true)}>
-                Forgot password?
-              </a>
-            </div>
-            <p className="mt-3">
-              Don't have an account?{" "}
-              <a href="/customer-register">Create Account</a>
-            </p>
-            {/* <MDBBtn className="mb-4 w-100" size="lg" type="submit">
-              Sign in
-            </MDBBtn> */}
+              Remember me
+            </label>
             <button
-              className="mb-4 w-100 btn btn-success"
-              size="lg"
-              type="submit"
+              type="button"
+              className="nh-link"
+              onClick={() => setForgotOpen(true)}
             >
-              {" "}
-              {loginLoading ? "Signing in..." : "Sign in"}{" "}
+              Forgot password?
             </button>
-          </form>
+          </div>
 
-          <MDBModal open={modalOpen} tabIndex="-1" setOpen={setModalOpen}>
-            <MDBModalHeader>Forgot Password</MDBModalHeader>
-            <MDBModalBody>
-              {step === 1 && (
-                <>
-                  <MDBInput
-                    label="Enter your email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="mb-3"
-                  />
-                  <MDBBtn onClick={handleForgotPassword}>Send OTP</MDBBtn>
-                </>
-              )}
-              {step === 2 && (
-                <>
-                  <MDBInput
-                    label="Enter OTP"
-                    type="text"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
-                    className="mb-3"
-                  />
-                  <MDBBtn onClick={handleVerifyOtp}>Verify OTP</MDBBtn>
-                </>
-              )}
-              {step === 3 && (
-                <>
-                  <MDBInput
-                    label="New Password"
-                    type="password"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    className="mb-3"
-                  />
-                  <MDBInput
-                    label="Confirm Password"
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="mb-3"
-                  />
-                  <MDBBtn onClick={handleResetPassword}>Reset Password</MDBBtn>
-                </>
-              )}
-            </MDBModalBody>
-          </MDBModal>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
+          <button className="nh-btn" type="submit" disabled={loading}>
+            {loading ? "Signing in..." : "Sign in"}
+          </button>
+        </form>
+
+        <p className="nh-foot">
+          New to The Naari House?{" "}
+          <Link className="nh-link" to="/customer-register">
+            Create an account
+          </Link>
+        </p>
+      </AuthShell>
+
+      <ForgotPasswordModal
+        open={forgotOpen}
+        onClose={() => setForgotOpen(false)}
+      />
+    </>
   );
 };
 
