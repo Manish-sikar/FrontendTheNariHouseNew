@@ -32,37 +32,32 @@ async function getCategoryById(id) {
 // Add Category
 // ========================================
 
-async function addCategory(formdata) {
-  try {
-    const response = await router.post(
-      "/categories",
-      formdata
-    );
+const addCategory = async (formData) => {
+  return await router.post(
+    "/categories",
+    formData,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+  );
+};
 
-    return response;
-  } catch (error) {
-    console.error("Error in adding category:", error);
-    throw error;
-  }
-}
-
-// ========================================
-// Update Category
-// ========================================
-
-async function updateCategory(id, formdata) {
-  try {
-    const response = await router.put(
-      `/categories/${id}`,
-      formdata
-    );
-
-    return response;
-  } catch (error) {
-    console.error("Error in updating category:", error);
-    throw error;
-  }
-}
+const updateCategory = async (
+  id,
+  formData
+) => {
+  return await router.put(
+    `/categories/${id}`,
+    formData,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }
+  );
+};
 
 // ========================================
 // Delete Category

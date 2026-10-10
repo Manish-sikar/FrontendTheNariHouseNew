@@ -432,10 +432,16 @@ const EcommerceSideBar = () => {
                 <div className={`collapse ${collapseStates.cms ? "show" : ""}`}>
                   <ul className="nav nav-collapse">
                     <li>
-                      <NavLink to="/admin/cms/home">
-                        <span className="sub-item">Home Page</span>
+                      <NavLink to="/admin/cms/home-sections/add">
+                        <span className="sub-item">Home Sections Add</span>
                       </NavLink>
                     </li>
+                      <li>
+                      <NavLink to="/admin/cms/home-sections">
+                        <span className="sub-item">Home Sections </span>
+                      </NavLink>
+                    </li>
+                 
 
                     <li>
                       <NavLink to="/admin/cms/about">

@@ -17,11 +17,13 @@ const Categories = () => {
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
 
-  const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    status: 1,
-  });
+const [formData, setFormData] = useState({
+  name: "",
+  description: "",
+  image: null,
+  imagePreview: "",
+  status: 1,
+});
 
   // ================================
   // GET ALL CATEGORIES
@@ -61,144 +63,170 @@ const Categories = () => {
   // INPUT CHANGE
   // ================================
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+const handleChange = (e) => {
+  const { name, value, files } = e.target;
+
+  if (name === "image") {
+    const file = files?.[0];
+
+    if (!file) return;
 
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      image: file,
+      imagePreview: URL.createObjectURL(file),
     }));
-  };
+
+    return;
+  }
+
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
 
   // ================================
   // OPEN ADD MODAL
   // ================================
 
-  const openAddModal = () => {
-    setEditId(null);
+const openAddModal = () => {
+  setEditId(null);
 
-    setFormData({
-      name: "",
-      description: "",
-      status: 1,
-    });
+  setFormData({
+    name: "",
+    description: "",
+    image: null,
+    imagePreview: "",
+    status: 1,
+  });
 
-    setShowModal(true);
-  };
+  setShowModal(true);
+};
 
   // ================================
   // OPEN EDIT MODAL
   // ================================
 
-  const openEditModal = (category) => {
-    setEditId(category._id);
+const openEditModal = (category) => {
+  setEditId(category._id);
 
-    setFormData({
-      name: category.name || "",
-      description: category.description || "",
-      status: category.status ?? 1,
-    });
+  setFormData({
+    name: category.name || "",
+    description: category.description || "",
+    image: null,
+    imagePreview: category.image || "",
+    status: category.status ?? 1,
+  });
 
-    setShowModal(true);
-  };
-
+  setShowModal(true);
+};
   // ================================
   // CLOSE MODAL
   // ================================
 
-  const closeModal = () => {
-    setShowModal(false);
-    setEditId(null);
+const closeModal = () => {
+  setShowModal(false);
+  setEditId(null);
 
-    setFormData({
-      name: "",
-      description: "",
-      status: 1,
-    });
-  };
-
+  setFormData({
+    name: "",
+    description: "",
+    image: null,
+    imagePreview: "",
+    status: 1,
+  });
+};
   // ================================
   // ADD / UPDATE CATEGORY
   // ================================
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const categoryName = formData.name.trim();
+  const categoryName = formData.name.trim();
 
-    if (!categoryName) {
-      Swal.fire({
-        icon: "warning",
-        title: "Category Name Required",
-        text: "Please enter category name",
-      });
+  if (!categoryName) {
+    Swal.fire({
+      icon: "warning",
+      title: "Category Name Required",
+      text: "Please enter category name",
+    });
 
-      return;
-    }
+    return;
+  }
 
-    try {
-      setSaving(true);
+  try {
+    setSaving(true);
 
-      let response;
+    const data = new FormData();
 
-      // ============================
-      // UPDATE
-      // ============================
+    data.append("name", categoryName);
+    data.append(
+      "description",
+      formData.description.trim()
+    );
 
-      if (editId) {
-        response = await updateCategory(editId, {
-          name: categoryName,
-          description: formData.description.trim(),
-          status: Number(formData.status),
-        });
-      }
-
-      // ============================
-      // ADD
-      // ============================
-
-      else {
-        response = await addCategory({
-          name: categoryName,
-          description: formData.description.trim(),
-        });
-      }
-
-      if (response.data.success) {
-        Swal.fire({
-          icon: "success",
-          title: editId
-            ? "Category Updated"
-            : "Category Added",
-          text: response.data.message,
-          timer: 1500,
-          showConfirmButton: false,
-        });
-
-        closeModal();
-
-        // Get fresh data from DB
-        await loadCategories();
-      }
-    } catch (error) {
-      console.error(
-        editId
-          ? "Update Category Error:"
-          : "Add Category Error:",
-        error
+    if (editId) {
+      data.append(
+        "status",
+        Number(formData.status)
       );
+    }
+
+    if (formData.image) {
+      data.append("image", formData.image);
+    }
+
+    let response;
+
+    if (editId) {
+      response = await updateCategory(
+        editId,
+        data
+      );
+    } else {
+      response = await addCategory(data);
+    }
+
+    if (response.data.success) {
 
       Swal.fire({
-        icon: "error",
-        title: "Error",
-        text:
-          error.response?.data?.message ||
-          "Something went wrong",
+        icon: "success",
+        title: editId
+          ? "Category Updated"
+          : "Category Added",
+        text: response.data.message,
+        timer: 1500,
+        showConfirmButton: false,
       });
-    } finally {
-      setSaving(false);
+
+      closeModal();
+
+      await loadCategories();
     }
-  };
+
+  } catch (error) {
+
+    console.error(
+      editId
+        ? "Update Category Error:"
+        : "Add Category Error:",
+      error
+    );
+
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text:
+        error.response?.data?.message ||
+        "Something went wrong",
+    });
+
+  } finally {
+    setSaving(false);
+  }
+};
 
   // ================================
   // DELETE CATEGORY
@@ -666,6 +694,46 @@ const Categories = () => {
                     ></textarea>
 
                   </div>
+                  {/* CATEGORY IMAGE */}
+
+<div className="mb-3">
+
+  <label className="form-label fw-semibold">
+    Category Image
+  </label>
+
+  <input
+    type="file"
+    name="image"
+    className="form-control"
+    accept="image/*"
+    onChange={handleChange}
+    disabled={saving}
+  />
+
+  <small className="text-muted">
+    Recommended size: 500 × 700 px
+  </small>
+
+  {formData.imagePreview && (
+    <div className="mt-3">
+
+      <img
+        src={formData.imagePreview}
+        alt="Category Preview"
+        style={{
+          width: "140px",
+          height: "180px",
+          objectFit: "cover",
+          borderRadius: "6px",
+          border: "1px solid #ddd",
+        }}
+      />
+
+    </div>
+  )}
+
+</div>
 
                   {/* STATUS - ONLY EDIT */}
 

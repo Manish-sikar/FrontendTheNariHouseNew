@@ -75,6 +75,8 @@ import MyOrders from "./component/Orders/MyOrders";
 import OrderDetails from "./component/Orders/OrderDetails";
 import WishlistPage from "./component/wishlist/WishlistPage";
 import HeaderSettings from "./adminComponent/adminComponent/HeaderSettings/HeaderSettings";
+import HomeSectionAdd from "./adminComponent/adminComponent/NewLetter/HomeSectionAdd";
+import HomeSectionPage from "./adminComponent/adminComponent/NewLetter/HomeSectionPage";
 
 function App() {
   return (
@@ -500,6 +502,30 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <HeaderSettings />
+                  </ProtectedRoute>
+                }
+              />
+                      <Route
+                path="/admin/cms/home-sections/add"
+                element={
+                  <ProtectedRoute>
+                    <HomeSectionAdd />
+                  </ProtectedRoute>
+                }
+              />
+                         <Route
+                path="/admin/cms/home-sections"
+                element={
+                  <ProtectedRoute>
+                    <HomeSectionPage />
+                  </ProtectedRoute>
+                }
+              />
+                            <Route
+                path="/admin/cms/home-sections/edit"
+                element={
+                  <ProtectedRoute>
+                    <HomeSectionAdd />
                   </ProtectedRoute>
                 }
               />

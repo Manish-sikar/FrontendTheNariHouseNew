@@ -1,12 +1,11 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
 const getCategoryImage = (category) => {
   return (
-    category.image ||
-    category.categoryImage ||
-    category.imageUrl ||
+    category?.image ||
+    category?.categoryImage ||
+    category?.imageUrl ||
     "/img/category-default.jpg"
   );
 };
@@ -17,13 +16,13 @@ const CategoryShowcase = ({ categories = [] }) => {
 
       <div className="home-container">
 
+        {/* ================= HEADING ================= */}
+
         <div className="section-heading center">
 
           <span>EXPLORE OUR CATEGORY</span>
 
-          <h2>
-            Discover Your Style
-          </h2>
+          <h2>Discover Your Style</h2>
 
           <p>
             Find your favorite styles and everyday essentials.
@@ -31,26 +30,41 @@ const CategoryShowcase = ({ categories = [] }) => {
 
         </div>
 
+
+        {/* ================= CATEGORY GRID ================= */}
+
         <div className="category-grid">
 
           {categories.map((category) => (
 
             <Link
+              key={category._id}
               to={`/products?category=${category._id}`}
               className="category-card"
-              key={category._id}
             >
+
+              {/* IMAGE ONLY */}
 
               <div className="category-image">
 
                 <img
                   src={getCategoryImage(category)}
-                  alt={category.name}
+                  alt={category?.name || "Category"}
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.src =
+                      "/img/category-default.jpg";
+                  }}
                 />
 
               </div>
 
-              <h4>{category.name}</h4>
+
+              {/* CATEGORY NAME */}
+
+              {/* <div className="category-name">
+                {category?.name}
+              </div> */}
 
             </Link>
 
